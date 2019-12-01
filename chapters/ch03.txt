@@ -57,6 +57,14 @@ kubectl logs <pod_name>
 kubectl logs -f <pod_name>
 kubectl logs <pod_name> -c <container_name>
 
+#Delete pod by name
+kubectl delete po kubia-manual
+
+#Delete pod by label
+kubectl delete po -l creation_method=manual
+
+#
+
 #Port forward
 kubectl port-forward <pod_name> 8888:8080
 
