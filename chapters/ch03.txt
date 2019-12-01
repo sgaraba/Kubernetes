@@ -41,9 +41,25 @@ kubectl get nodes -l gpu=true
 #Add annotation
 kubectl annotate pod kubia-manual sgaraba.com/someannotation="foo bar"
 
+#List namespaces
+kubectl get ns
+
+#List pods from namespaces 'kube-system'
+kubectl get po --namespace kube-system
+
+#Create namespace
+kubectl create -f yml/custom-namespace.yml or kubectl create namespace custom-namespace
+
+#Create pod in specifc namespace
+kubectl create -f yml/kubia-manual.yaml -n custom-namespace
+
 kubectl logs <pod_name>
 kubectl logs -f <pod_name>
 kubectl logs <pod_name> -c <container_name>
 
+#Port forward
 kubectl port-forward <pod_name> 8888:8080
+
+#Switch namespace
+kubectl config set-context minikube --namespace=<namespace_name>
 
