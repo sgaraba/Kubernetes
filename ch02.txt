@@ -1,0 +1,26 @@
+https://kubernetes.io/docs/tasks/tools/install-minikube/
+
+source <(kubectl completion bash)
+source <(kubectl completion bash | sed s/kubectl/k/g)
+
+minikube start
+minikube stop
+minikube dashboard
+
+kubectl cluster-info
+kubectl get nodes
+kubectl get nodes minikube
+kubectl describe node minikube
+
+kubectl run kubia --image=luksa/kubia --port=8080 --generator=run/v1
+kubectl get pods
+kubectl describe pod <pod_name>
+
+kubectl expose rc kubia --type=LoadBalancer --name kubia-http
+kubectl get services
+
+#Run service in browser
+minikube service kubia-http
+
+kubectl get replicationcontrollers or kubectl get rc
+kubectl scale rc kubia --replicas=3

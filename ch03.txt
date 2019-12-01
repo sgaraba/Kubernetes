@@ -1,0 +1,25 @@
+kubectl get po <pod_name> -o yaml
+
+http://kubernetes.io/docs/api
+
+kubectl explain pods
+kubectl explain pod.spec
+
+kubectl create -f kubia-manual.yaml
+
+#Get pod info in json format
+kubectl get po kubia-manual -o json
+
+#Get pods labels
+kubectl get po --show-labels
+kubectl get po -L creation_method,env
+
+#Create label
+kubectl label po <pod_name> <key=value>
+
+kubectl logs <pod_name>
+kubectl logs -f <pod_name>
+kubectl logs <pod_name> -c <container_name>
+
+kubectl port-forward <pod_name> 8888:8080
+

@@ -1,0 +1,95 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2019-12-01T11:42:15Z"
+  generateName: kubia-
+  labels:
+    run: kubia
+  name: kubia-vhdb2
+  namespace: default
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicationController
+    name: kubia
+    uid: 5d05cf42-697c-41db-a12a-9f3c230098f8
+  resourceVersion: "30445"
+  selfLink: /api/v1/namespaces/default/pods/kubia-vhdb2
+  uid: 5c0aeab0-583b-4aa5-b82b-a8c1d4206460
+spec:
+  containers:
+  - image: luksa/kubia
+    imagePullPolicy: Always
+    name: kubia
+    ports:
+    - containerPort: 8080
+      protocol: TCP
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: default-token-trxdv
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: minikube
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: default-token-trxdv
+    secret:
+      defaultMode: 420
+      secretName: default-token-trxdv
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2019-12-01T11:42:16Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2019-12-01T11:42:25Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2019-12-01T11:42:25Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2019-12-01T11:42:15Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://51fda18d6ce94722debb3c9a0788a56f6469aeada870a9397cf8bcf26a8d72e5
+    image: luksa/kubia:latest
+    imageID: docker-pullable://luksa/kubia@sha256:3f28e304dc0f63dc30f273a4202096f0fa0d08510bd2ee7e1032ce600616de24
+    lastState: {}
+    name: kubia
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2019-12-01T11:42:23Z"
+  hostIP: 192.168.39.83
+  phase: Running
+  podIP: 172.17.0.7
+  podIPs:
+  - ip: 172.17.0.7
+  qosClass: BestEffort
+  startTime: "2019-12-01T11:42:16Z"

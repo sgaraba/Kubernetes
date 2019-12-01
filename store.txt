@@ -1,0 +1,2 @@
+kubectl run store --image=sgaraba/store --port=8080 --generator=run/v1
+kubectl expose rc store --type=LoadBalancer --name store-http
