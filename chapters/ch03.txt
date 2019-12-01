@@ -38,6 +38,9 @@ kubectl get po -l 'env notin (debug,devel)'
 kubectl label node minikube gpu=true
 kubectl get nodes -l gpu=true
 
+#Add annotation
+kubectl annotate pod kubia-manual sgaraba.com/someannotation="foo bar"
+
 kubectl logs <pod_name>
 kubectl logs -f <pod_name>
 kubectl logs <pod_name> -c <container_name>
