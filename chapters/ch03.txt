@@ -16,9 +16,27 @@ kubectl get po -L creation_method,env
 
 #Create label
 kubectl label po <pod_name> <key=value>
+kubectl get po -l env
 
 #Overwrite label
 kubectl label po <pod_name> env=debug --overwrite
+
+#Show modules list with label selector
+kubectl get po -l creation_method=manual
+
+#Show modules that include label 'env'
+kubectl get po -l env
+
+#Show modules that not include label 'env'
+kubectl get po -l '!env'
+
+kubectl get po -l creation_method!=manual
+kubectl get po -l 'env in (debug,devel)'
+kubectl get po -l 'env notin (debug,devel)'
+
+#Add label to node
+kubectl label node minikube gpu=true
+kubectl get nodes -l gpu=true
 
 kubectl logs <pod_name>
 kubectl logs -f <pod_name>
