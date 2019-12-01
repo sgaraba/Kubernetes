@@ -63,8 +63,14 @@ kubectl delete po kubia-manual
 #Delete pod by label
 kubectl delete po -l creation_method=manual
 
+#Delete all pods
+kubectl delete po --all
+
 #Delete namespace
 kubectl delete ns custom-namespace
+
+#Delete all resources
+kubectl delete all --all
 
 #Port forward
 kubectl port-forward <pod_name> 8888:8080
