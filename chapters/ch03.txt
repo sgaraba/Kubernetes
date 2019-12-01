@@ -17,6 +17,9 @@ kubectl get po -L creation_method,env
 #Create label
 kubectl label po <pod_name> <key=value>
 
+#Overwrite label
+kubectl label po <pod_name> env=debug --overwrite
+
 kubectl logs <pod_name>
 kubectl logs -f <pod_name>
 kubectl logs <pod_name> -c <container_name>
